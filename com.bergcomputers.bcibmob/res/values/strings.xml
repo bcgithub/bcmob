@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">com.bergcomputers.bcibmob</string>
+    <string name="title_account_detail">Account Detail</string>
+    <string name="buttonNo">No</string>
+    <string name="buttonYes">Yes</string>
+
+</resources>
