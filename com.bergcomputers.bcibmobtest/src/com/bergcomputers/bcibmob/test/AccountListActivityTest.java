@@ -2,16 +2,16 @@ package com.bergcomputers.bcibmob.test;
 
 import android.test.ActivityInstrumentationTestCase2;
 
-import com.bergcomputers.bcibmob.AccountsListActivity;
+import com.bergcomputers.bcibmob.AccountListActivity;
 
-public class AccountListActivityTest extends ActivityInstrumentationTestCase2<AccountsListActivity> {
+public class AccountListActivityTest extends ActivityInstrumentationTestCase2<AccountListActivity> {
 
     public AccountListActivityTest() {
-    	super(Class<AccountsListActivity.class>);
+    	super(AccountListActivity.class);
     }
 
     public void testActivity() {
-    	AccountsListActivity activity = getActivity();
+    	AccountListActivity activity = getActivity();
         assertNotNull(activity);
     }
 }
