@@ -19,10 +19,12 @@ import android.os.Environment;
 public class Util {
 
 	// base urls
-	public static final String BASE_URL = "http://192.168.2.48:8080/bcibws/rest/";
+	public static final String BASE_URL = "http://192.168.44.165:8080/bcibws/rest/";
 
 	// to be appended to the url for different operation
 	public static final String URL_GET_ACCOUNTS = "accounts";
+	public static final String URL_GET_BENEFICIARIES = "beneficiaries";
+	public static final String URL_GET_TRANSACTIONS = "transactions";
 
 
 	public static final char URL_SEPARATOR = '/';

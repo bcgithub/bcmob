@@ -3,8 +3,8 @@ package com.bergcomputers.bcibmob;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-
-import com.bergcomputers.bcibmob.common.net.IJSONNetworkActivity;
+import android.view.View;
+import android.widget.Button;
 
 /**
  * An activity representing a list of Accounts. This activity has different
@@ -23,7 +23,8 @@ import com.bergcomputers.bcibmob.common.net.IJSONNetworkActivity;
  * selections.
  */
 public class AccountListActivity extends FragmentActivity implements
-		AccountListFragment.Callbacks {
+		AccountListFragment.Callbacks, BeneficiaryListFragment.Callbacks,
+		TransactionListFragment.Callbacks {
 
 	/**
 	 * Whether or not the activity is in two-pane mode, i.e. running on a tablet
@@ -49,6 +50,56 @@ public class AccountListActivity extends FragmentActivity implements
 					.findFragmentById(R.id.account_list))
 					.setActivateOnItemClick(true);
 		}
+
+		AccountListFragment fragment = new AccountListFragment();
+		getSupportFragmentManager()
+				.beginTransaction()
+				.add(R.id.fragments, fragment).commit();
+		
+		final Button accounts = (Button) findViewById(R.id.accountsButton1);
+		accounts.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				Bundle arguments = new Bundle();
+				// arguments.putString(AccountDetailFragment.ARG_ITEM_ID, id);
+				AccountListFragment fragment = new AccountListFragment();
+				fragment.setArguments(arguments);
+				getSupportFragmentManager()
+						.beginTransaction()
+//						.remove(getSupportFragmentManager().findFragmentById(
+//								R.id.account_list))
+						.replace(R.id.fragments, fragment).commit();
+			}
+		});
+
+		final Button trans = (Button) findViewById(R.id.transactionsButton2);
+		trans.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				Bundle arguments = new Bundle();
+				// arguments.putString(AccountDetailFragment.ARG_ITEM_ID, id);
+				TransactionListFragment fragment = new TransactionListFragment();
+				fragment.setArguments(arguments);
+				getSupportFragmentManager()
+						.beginTransaction()
+						//.remove(getSupportFragmentManager().findFragmentById(
+						//		R.id.account_list))
+						.replace(R.id.fragments, fragment).commit();
+			}
+		});
+
+		final Button benef = (Button) findViewById(R.id.beneficiariesButton3);
+		benef.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				Bundle arguments = new Bundle();
+				// arguments.putString(AccountDetailFragment.ARG_ITEM_ID, id);
+				BeneficiaryListFragment fragment = new BeneficiaryListFragment();
+				fragment.setArguments(arguments);
+				getSupportFragmentManager()
+						.beginTransaction()
+						//.remove(getSupportFragmentManager().findFragmentById(
+						//		R.id.account_list))
+						.replace(R.id.fragments, fragment).commit();
+			}
+		});
 
 		// TODO: If exposing deep links into your app, handle intents here.
 	}
@@ -78,6 +129,5 @@ public class AccountListActivity extends FragmentActivity implements
 			startActivity(detailIntent);
 		}
 	}
-
 
 }
